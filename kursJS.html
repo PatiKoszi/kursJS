@@ -96,22 +96,35 @@ var tab = [2, 0, 2, -34, 6, 75, -3];
 */
 
 //!!! Wycinanie elementów tablicy za pomocą Arr.slice()
-
+/*
 var tab = ['Marcin', 'Ania', 'Agnieszka'];
 
-const tab2 = tab.slice(0, 1)
+const tab2 = tab.slice(0, 1);
 console.log(tab2); //wypisze się "Marcin"
 console.log(tab); //wypisze się "Marcin, Ania, Agnieszka"
 
 
-const tab3 = tab.slice(0,2)
+const tab3 = tab.slice(0,2);
 console.log(tab3); //wypisze się "Marcin, Ania"
 
-const tab4 = tab.slice(0,5)
+const tab4 = tab.slice(0,5);
 console.log(tab4); //wypisze się "Marcin, Ania, Agnieszka"
+*/
 
+//!!! Usuwanie lub dodawanie elementów za pomocą metody splice()
 
+var tab = ['Marcin', 'Ania', 'Agnieszka'];
 
+tab.splice(1,1); //(od usunie czyli usunie pierszy a że jest jeden to tylko ten
+console.log(tab); //wypisze "Marcin, Agnieszka" od pierwszego jeden element
+
+tab.splice(1, 1, 'Monika', 'Magda') //usuwam z wcześniejszego "Agnieszka" i wstawiam na jej miejsce inne panie
+console.log(tab); //wypisze "Marcin, Monika, Magda"
+
+var tab1 = ['Marcin', 'Ania', 'Agnieszka', 'Monika'];
+var deletedEl = tab1.splice(2, 1);
+console.log(tab1); //wypisze 'Marcin', 'Ania', 'Monika'
+console.log(deletedEl); //wypisze 'Agnieszka'
 
 
 </script>
