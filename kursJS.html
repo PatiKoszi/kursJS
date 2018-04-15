@@ -130,7 +130,7 @@ console.log(deletedEl); //wypisze 'Agnieszka'
 ///----Dodawanie elementu na koniec tablicy za pomocą metody push()
 //wsawia nowy element (lub kilka) do tablicy na jej koniec i zwraca
 // długość nowej tablicy
-
+/*
 const tab = ['Marcin', 'Ania', 'Agnieszka'];
 var tab1 = tab.push('Grzegorz');
 //var tab2 = tab1.push('Piotr', 'Karol'); // to nie zadziała nie
@@ -140,6 +140,29 @@ var tab2 = tab.push('Piotr', 'Karol');
 console.log(tab); //["Marcin", "Ania", "Agnieszka", "Grzegorz", "Piotr", "Karol"]
 console.log(tab1); // zwróci 4
 console.log(tab2); // zwróci 6
+*/
+//----Mapowanie
+
+var tab1 = ['Marcin', 'Ania', 'Agnieszka'];
+
+function foo(ele){
+    return ele.toUpperCase();
+}
+
+console.log(tab1.map(foo)); //[MARCIN, ANIA, AGNIESZKA]
+
+
+//---- Filtrowanie
+
+var tab = [1, 2, 3, 4, 5, 6];
+
+function foo1(el) {
+    return el % 2 === 0;
+}
+console.log(tab.filter(foo1));
+
+
+
 
 </script>
 
