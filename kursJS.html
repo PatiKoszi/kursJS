@@ -58,8 +58,9 @@ var newTableBig = animals.concat(animals2, animals3);
 console.log(newTableSmall);
 console.log(newTableBig);
 */
+
 // !!!! Srednia ilość elementów tablicy
-function arrAverage(arr) {
+/*function arrAverage(arr) {
     var sum =0;
     var j =0;
     for (var i=0; i<arr.length; i++){
@@ -71,6 +72,28 @@ function arrAverage(arr) {
     console.log(Math.floor(sum/j));
 }
 arrAverage(["Pies", "Kot", "Słoń", "Wieloryb", "Chomik ninja", "Świnka morderca"]);
+*/
+
+//!!!Max i Min element tablicy
+
+    function arrMax(arr) {
+        var max =arr[0];
+        for (var i=0; i<arr.length; i++){
+            max = (arr[i] > max) ? arr[i] : max;
+        }
+        return max;K
+    }
+    function arrMin(arr) {
+        var min =arr[0];
+        for (var i=0; i<arr.length; i++){
+        min = (arr[i] < min) ? arr[i] : min;
+        }
+        return min;
+    }
+var tab = [2, 0, 2, -34, 6, 75, -3];
+    console.log(arrMax(tab) );
+    console.log(arrMin(tab) );
+
 
 
 
