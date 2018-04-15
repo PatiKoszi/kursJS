@@ -47,7 +47,7 @@ console.log(tab3);
 */
 
 // !!! Dodawanie kilku tablic
-
+/*
 var animals = ["Pies", "Kot"];
 var animals2 = ["Słoń", "Wieloryb"];
 var animals3 = ["Chomik ninja", "Świnka morderca"];
@@ -57,6 +57,20 @@ var newTableBig = animals.concat(animals2, animals3);
 
 console.log(newTableSmall);
 console.log(newTableBig);
+*/
+// !!!! Srednia ilość elementów tablicy
+function arrAverage(arr) {
+    var sum =0;
+    var j =0;
+    for (var i=0; i<arr.length; i++){
+        sum+= arr[i].length;
+        j++;
+    }
+    console.log(sum);
+    console.log(j);
+    console.log(Math.floor(sum/j));
+}
+arrAverage(["Pies", "Kot", "Słoń", "Wieloryb", "Chomik ninja", "Świnka morderca"]);
 
 
 
