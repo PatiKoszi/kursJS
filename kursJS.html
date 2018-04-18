@@ -142,7 +142,7 @@ console.log(tab1); // zwróci 4
 console.log(tab2); // zwróci 6
 */
 //----Mapowanie
-
+/*
 var tab1 = ['Marcin', 'Ania', 'Agnieszka'];
 
 function foo(ele){
@@ -160,6 +160,63 @@ function foo1(el) {
     return el % 2 === 0;
 }
 console.log(tab.filter(foo1));
+*/
+///----objety---/////
+
+var itIsme = {
+    name: "Patryk",
+    surname: "Kosznik",
+    age: 38,
+    food: "pizza",
+    height: 188,
+    print: function () {
+        console.log(this.name);
+        return this.name  + ' ' + this.surname +' lat ' + this.age + ' ' + this.weight;
+    }
+}
+
+itIsme.weight = 104; //dodałem nową metodę
+// ma metody i _proto_ constructor Object literał???
+
+console.log(itIsme.name + '-' + itIsme.height);
+console.log(itIsme.print());
+console.log(itIsme.toString()); //została wzięta z _proto_:Object i dlatego nie ma błędu
+// w konsoli.
+// każdy objek w JS otrzymuje _proto_ jest to wskaźnik na objekt prototypu
+    // na którym opiera się dany objekt. Każdy objekt w JS jest połączony ze swoim
+    // objektem wzorcem za pomocą _proto_ każda wywołana metoda jest
+    // najpierw szukana w danym objekcie a później w proto proto i do object a potem już tylko null
+
+
+function SuperHero (width, height, age) { //to jest konstruktor zawsze
+    // z dużej litery aby odróżnić od zwykłej funkcji
+    // jest to klasa objektu za jej pomocą twożę innych hero
+    this.width = width;
+    this.height = height;
+    this.age = age;
+
+    this.print = function() {
+        console.log(this.width + 'x' + this.height)
+    }
+}//dlatego że po this jest .width i to jest w funkcji SuperHero
+//to konstruktor wie że odnosi się do SuperHero
+
+
+//tworzymy 2 instancje na bazie powyższej wydmuszki
+const hero1 = new SuperHero(200, 100, 45);
+const hero2 = new SuperHero(300, 200);//age undefied
+// var x =5, co się dziej jak nie bedzie new przed SuperHero
+// nie powstanie objekt jest undefined czy coś jeszcze???
+
+hero1.print(); //wypisze 200x100
+
+hero2.width = 600;
+hero2.print(); //wypisze 600x200
+// W hero1 i hero2 od razu jest SuperHero _proto_ ma najpierw constructor a poźniej
+// w tym jest _proto_ i dopiero Object
+
+//SuperHero.print(); jakie właściwości ma SuperHero czym jest jak sprawdzić ???
+// wiem że jest konstruktorem
 
 
 
