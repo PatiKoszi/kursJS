@@ -161,7 +161,9 @@ function foo1(el) {
 }
 console.log(tab.filter(foo1));
 */
-///----objety---/////
+
+
+///----OBJEKTY---/////
 
 var itIsme = {
     name: "Patryk",
@@ -176,7 +178,8 @@ var itIsme = {
 }
 
 itIsme.weight = 104; //dodałem nową metodę
-// ma metody i _proto_ constructor Object literał???
+// ma metody i _proto_ constructor Object
+// objekt tworzony literałem ???
 
 console.log(itIsme.name + '-' + itIsme.height);
 console.log(itIsme.print());
@@ -188,35 +191,69 @@ console.log(itIsme.toString()); //została wzięta z _proto_:Object i dlatego ni
     // najpierw szukana w danym objekcie a później w proto proto i do object a potem już tylko null
 
 
-function SuperHero (width, height, age) { //to jest konstruktor zawsze
+function SuperHero (name,surname,width, height, age) { //to jest konstruktor zawsze
     // z dużej litery aby odróżnić od zwykłej funkcji
     // jest to klasa objektu za jej pomocą twożę innych hero
+    // wszystko co zmienimy w SuperHero zmieni nam metodę dla wszystkich
+    //objetów stworzonych i tych które stworzymy w przyszłości
+    // jest też prototypem dla nowych objektów
+    this.name = name;
+    this.surname = surname;
     this.width = width;
     this.height = height;
     this.age = age;
 
     this.print = function() {
-        console.log(this.width + 'x' + this.height)
+        console.log('width ' + this.width + ' x ' + 'height ' + this.height)
     }
 }//dlatego że po this jest .width i to jest w funkcji SuperHero
-//to konstruktor wie że odnosi się do SuperHero
+//skąd konstruktor wie że odnosi się do SuperHero???
 
 
 //tworzymy 2 instancje na bazie powyższej wydmuszki
-const hero1 = new SuperHero(200, 100, 45);
-const hero2 = new SuperHero(300, 200);//age undefied
+const hero1 = new SuperHero('Ludwik', 'Wielki', 200, 100, 45);
+const hero2 = new SuperHero('Andrzej', 'Maly', 300, 200);//age undefied
 // var x =5, co się dziej jak nie bedzie new przed SuperHero
 // nie powstanie objekt jest undefined czy coś jeszcze???
 
 hero1.print(); //wypisze 200x100
-
-hero2.width = 600;
+hero2.print(); //jeszcze ma 300x200
+hero2.width = 600;//zmieniliśmy mu width z początkowej wartości
 hero2.print(); //wypisze 600x200
 // W hero1 i hero2 od razu jest SuperHero _proto_ ma najpierw constructor a poźniej
-// w tym jest _proto_ i dopiero Object
+// w tym jest _proto_ i dopiero Object to znaczy że hero powstał na bazie
+//construktora SuperHero
 
 //SuperHero.print(); jakie właściwości ma SuperHero czym jest jak sprawdzić ???
 // wiem że jest konstruktorem
+
+//dodaję nową metodę do prototypu
+
+SuperHero.prototype.showInfo = function(){
+    // jak zamiast console.log dam return to co ???
+    console.log(this.name + ' ' + this.surname + ' ' + this.age + ' lat.');
+}
+// doaliśmy to do prototypu wiec wszystkie objekty storzone na jego podstawie
+    //będą miały tą metodę i this odnosi się do danego objektu i poda to co jest
+// w danym here pod tymi (właściwościami metodami atrybutami...???)
+
+hero1.showInfo();
+
+const hero3 = new SuperHero('Janusz', 'Srogi', 120, 110, 41);
+hero3.showInfo();
+
+// taka zajwka żę można na bazie prototypu stworzyć 1000(tu damy 10) objektów i dzięki damym
+    // w prototypie zmienimy we wszystkich coś nap zabirzmy wiek albo zmodyfikujemy
+    //funkcję print
+
+    const heroes = [];
+    for (var i =0; i<10; i++ ){
+        const sh = new SuperHero('Patryk' + i, 'Kosznik'+ i, 100 + i, 100 + i, 21 + i);
+        heroes.push(sh);
+    }
+
+console.log(heroes); // a jak zrobić żeby te numerki były przy SuperHero bo teraz nie wiem
+    // który jest ktory ??? i co się stanie jak wstawimy do do SuperHero
 
 
 
